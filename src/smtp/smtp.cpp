@@ -28,6 +28,6 @@ void SMTPServer::Start() {
 		}
 
 		SMTP::Client *client = new SMTP::Client(this, socket);
-		std::thread(&SMTP::Client::Handle, client);
+		std::thread(&SMTP::Client::Handle, client).detach();
 	}
 }

@@ -7,8 +7,10 @@
 #include <thread>
 
 #include "smtp/smtp.hpp"
+#include "settings.hpp"
 
 int main(void) {
+	std::cout << "Greeting: " << Settings::SMTP::Greeting << std::endl;
 	SMTPServer server(25);
 	
 	std::thread threadImap(&SMTPServer::Start, server);
